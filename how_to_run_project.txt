@@ -1,0 +1,10 @@
+# step 1
+create a virtualenv with this code : virtualenv venv  
+activate the virtualenv with this code : source venv/bin/activate    
+
+# step 2
+install packages with this code : pip install -r requirement.txt
+
+# step 3
+go to project directory with this code : cd cd alborz_school_site
+run the project with this code : python manage.py runserver    
