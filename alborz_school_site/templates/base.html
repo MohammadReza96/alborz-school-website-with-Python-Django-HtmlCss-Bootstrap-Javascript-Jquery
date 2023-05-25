@@ -36,7 +36,16 @@
 		{% comment %} ------------------------------------- navbar ------------------------------------------ {% endcomment %}
 		<div class="my-4 d-flex justify-content-end justify-content-md-around bg-danger">
 			<nav class="navbar navbar-expand-lg navbar-light bg-danger">
-				<a class="navbar-brand text-light" href="#">دبیرستان البرز</a>
+
+				<span class="navbar-brand d-sm-none" id="brand" href="#">دبیرستان البرز</span>
+
+				<div class="nav-panel__logo d-md-block d-none">
+                    <a href="{% url 'index:home' %}">
+                        <img src="{{media_url}}/images/school_logo/alborz-logo2.png" width="50px" alt="">
+                    </a>
+                </div>
+
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
 				</button>
@@ -44,13 +53,13 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				  <ul class="navbar-nav mr-auto">
 					<li class="nav-item active p-1 mx-2">
-					  <a class="nav-link text-light" href="#">خانه <span class="sr-only">(current)</span></a>
+					  <a class="nav-link" href="#">خانه <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item p-1 mx-2 ">
-					  <a class="nav-link text-light" href="#">تاریخچه</a>
+					  <a class="nav-link" href="#">تاریخچه</a>
 					</li>
 					<li class="nav-item dropdown p-1 mx-2">
-					  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						قابلیت ها
 					  </a>
 					  <div class="dropdown-menu bg-danger" aria-labelledby="navbarDropdown">
@@ -61,11 +70,11 @@
 						<a class="dropdown-item" href="#">لیست مدرسین</a>
 					  </div>
 					<li class="nav-item p-1 mx-2">
-					<a class="nav-link text-light" href="#">مقالات</a>
+					<a class="nav-link" href="#">مقالات</a>
 					</li>
 					</li>
 					<li class="nav-item p-1 mx-2">
-					  <a class="nav-link disabled text-light" href="#" tabindex="-1" aria-disabled="true">ورود\خروج</a>
+					  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ورود\خروج</a>
 					</li>
 				  </ul>
 				  <div class="search-box-2 d-flex justify-content-around d-md-none">
@@ -73,7 +82,7 @@
 						<div class="input-group">
 						  <input type="text" class="form-control input-group-append rounded-pill mr-1" name="q" placeholder="عبارت مورد نظر را وارد کنید">
 						  <div class="input-group-append">
-							 <button class="btn btn-outline-light rounded-pill" type="button">جست و جو</button>
+							 <button type="submit" class="btn btn-outline-light rounded-pill" type="button">جست و جو</button>
 						  </div>
 						</div>
 					  </form>
@@ -83,7 +92,40 @@
 		</div>
 		{% comment %} ------------------------------------- ---------------------------------------- {% endcomment %}
 		<div class="container">
-			<div class="header bg-primary text-center w-100 h-50">header</div>
+
+			<div class="header  text-center w-auto h-auto">
+				<div class="block-slideshow block-slideshow--layout--full block">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="block-slideshow__body">
+									<div class="owl-carousel">
+										{% comment %} {% for slide in slider_image %} {% endcomment %}
+											<a class="block-slideshow__slide" href="">
+												{% comment %} <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{media_url}}{{slide.slider_image}}"></div> {% endcomment %}
+												<div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{media_url}}/images/sliders/alborz-slider-1.jpg"></div>
+												<div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{media_url}}/images/sliders/alborz-slider-1.jpg"></div>
+												<div class="block-slideshow__slide-content">
+													<div class="block-slideshow__slide-title text-light">
+														{% comment %} {{slide.slider_title}} {% endcomment %}
+														دبیرستان البرز
+													</div>
+													<div class="block-slideshow__slide-text text-light col-4">
+														{% comment %} {{slide.slider_short_text}} {% endcomment %}
+														پیشرو در امر آموزش
+														<br>
+													</div>
+												</div>
+											</a>
+										{% comment %} {% endfor %} {% endcomment %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="body bg-danger text-center w-100 h-75">body</div>
 			<div class="footer bg-warning text-center w-100 h-50">footer</div>
 		</div>

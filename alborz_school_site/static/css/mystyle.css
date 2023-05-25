@@ -1,3 +1,12 @@
+#brand{
+    color: white;
+}
+.nav-link{
+    color: white !important;
+}
+.nav-link:hover{
+    color: yellow !important;
+}
 .dropdown-menu{
     border-radius: 15px;
     border-color: white;
@@ -7,5 +16,7 @@
     color: white;
 }
 .dropdown-item:hover{
-    color: red;
+    color: yellow;
+    background-color:#dc3748;
+
 }
