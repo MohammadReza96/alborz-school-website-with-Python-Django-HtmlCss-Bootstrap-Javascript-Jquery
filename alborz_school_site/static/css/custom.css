@@ -1,12 +1,13 @@
 @import url("font/primary-iran-yekan.css");
 @import url("font/secondary-iran-yekan.css");
+@import url("font/fars-Yekan-Fat.css");
 
 .ltr_text {
 	display: inline-block;
 	direction: ltr;
 }
 body {
-	font-family: "primary-font", "segoe ui", "tahoma";
+	font-family: "farsYekanFat", "segoe ui", "tahoma";
 	line-height: 1.85;
 }
 .primary-font {
