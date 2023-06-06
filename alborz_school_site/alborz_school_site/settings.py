@@ -24,8 +24,9 @@ SECRET_KEY = "django-insecure-=0f36geoe8ro+vb@m5neouk77hh(8htuy!t=x9$d^p2+ue@671
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
+# DEBUG = False
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.index.apps.IndexConfig"
+    "apps.index.apps.IndexConfig",
+    "apps.account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,4 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL="account.CustomUser"

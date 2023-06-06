@@ -1,22 +1,51 @@
-#brand{
-    color: white;
-}
-.nav-link{
-    color: white !important;
-}
-.nav-link:hover{
-    color: yellow !important;
-}
-.dropdown-menu{
-    border-radius: 15px;
-    border-color: white;
+@import url("font/B-farsYekan.css");
+
+body{
+    /* font-family: Shabnam; */
+    font-family: "farsYekan-font", "segoe ui", "tahoma";
+    background-image: url('../../media/images/site_background/site-background-2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    ba
+	/* line-height: 1.85; */
 }
 
-.dropdown-item{
-    color: white;
+nav a{
+    color: black !important;
 }
-.dropdown-item:hover{
-    color: yellow;
-    background-color:#dc3748;
+.text-justify {
+    text-align: justify;
+}
+/* scroll up btn  */
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    color: #8c2cff; /* Text color */
+    background-color: transparent;
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Rounded corners */
+    font-size: 28px; /* Increase font size */
+    opacity: 0.7;
+}
+#myBtn:hover {
+    background-color: transparent; /* Add a dark-grey background on hover */
+    color: #ffc107; /* Text color */
+}
+.errorlist > li{
+	color: red;
+}
+.remember_password:hover{
+    color: #8c2cff !important;
+}
+.hover1:hover{
+    background-color: #8c2cff !important; /* Text color */
+    color: #ffffff !important; /* Text color */
 
 }

@@ -1,0 +1,74 @@
+<div class="my-3 bg-white bg-opacity-95 shadow-sm  sticky-top ">
+    <nav class="navbar navbar-expand-lg container col-10"  data-bs-theme="light">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-4 text-primary" href="#">دبیرستان البرز</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=" {% url 'index:home' %} ">خانه</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=" {% url 'index:blogs' %} ">مقالات</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#">قابلیت ها</a>
+            </li> -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  قابلیت ها
+                </a>
+                <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">لیست مدرسین</a></li>
+                  <li><a class="dropdown-item" href="#">شرایط ثبت نام</a></li>
+                  <li><a class="dropdown-item" href="#">رزرو ثبت نام</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">تاریخ امتحانات میان ترم</a></li>
+                  <li><a class="dropdown-item" href="#">تاریخ امحانات خرداد ماه</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item disabled" href="#">فروشگاه</a></li>
+                  <!-- <li><a class="dropdown-item" href="#"></a></li> -->
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=" {% url 'index:contact' %} ">ارتباط با ما</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=" {% url 'index:about_us' %} ">درباره ما</a>
+            </li>
+        </ul>
+        <form class="d-flex d-lg-none mb-2" role="search">
+            <input class="form-control me-2" type="search" name="q2" placeholder="عبارت مورد نظر را وارد کنید" aria-label="Search">&nbsp;
+            <button class="btn btn-outline-primary col-4" type="submit">جست و جو</button>
+        </form>
+
+        {% if user.is_authenticated %}
+            <div class="d-flex justify-content-lg-end justify-content-start px-3 pt-1" >
+                <a href=" {% url 'account:userpanel' %} " class="text-decoration-none fs-5 text-primary" >
+                    پنل کاربری
+                </a>
+            </div>
+            <div class="d-flex justify-content-lg-end justify-content-start px-3 pt-1" >
+                <a href=" {% url 'account:logout' %} " class="text-decoration-none fs-5 text-primary" >
+                    خروج
+                </a>
+            </div>
+        {% else %}
+            <div class="d-flex justify-content-lg-end justify-content-start px-3 pt-1" >
+                <a href=" {% url 'account:register' %} " class="text-decoration-none fs-5 text-primary" >
+                    ثبت نام
+                </a>
+            </div>
+            <div class="d-flex justify-content-lg-end justify-content-start px-3 pt-1" >
+                <a href=" {% url 'account:login' %} " class="text-decoration-none fs-5 text-primary" >
+                    ورود
+                    &nbsp;
+                </a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    </nav>
+</div>

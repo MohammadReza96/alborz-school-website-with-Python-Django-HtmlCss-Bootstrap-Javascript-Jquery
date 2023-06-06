@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block title %} ثبت نام {% endblock title %}
+{% block body %}
+    <div class="py-5 pb-3">
+        <section class="container bg-white rounded col-8 col-md-6 col-lg-4 p-4 shadow ">
+            <h1 class="text-center display-6  mb-3 text-primary">ثبت نام</h1>
+            <form action="" method="post" id="register_form">
+                {% csrf_token %}
+                {{register_form.as_p}}
+                <button type="submit" class="btn btn-primary form-control mt-4">ثبت نام</button>
+            </form>
+        </section>
+    </div>
+{% endblock body %}

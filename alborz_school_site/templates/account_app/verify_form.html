@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block title %}تایید ثبت نام {% endblock title %}
+{% block body %}
+    <div class="py-5 pb-3">
+        <section class="container bg-white rounded col-8 col-md-6 col-lg-4 p-4 shadow">
+            <h1 class="text-center display-6  mb-3 text-primary">تایید ثبت نام</h1>
+            {% comment %} <form action="#" method="post" class="p-3">
+                <label for="code_6" class="mt-2">کد شش رقمی</label>
+                <input type="text" name="code_6" id="code_6" class="form-control">
+                <button type="submit" class="btn btn-block btn-primary form-control my-3">تایید ثبت نام</button>
+            </form> {% endcomment %}
+
+            <form action="" method="post">
+                {% csrf_token %}
+                {{verify_form.as_p}}
+                <button type="submit" class="btn btn-primary mb-4">ارسال کد</button>
+            </form>
+        </section>
+    </div>
+{% endblock body %}

@@ -1,5 +1,4 @@
 from . import jalali
-
 #------------------------------------- persion number converter
 def persian_numbers_converter(mystr):
     numbers={
@@ -18,7 +17,6 @@ def persian_numbers_converter(mystr):
         mystr = mystr.replace(e,p)
         
     return mystr
-
 #------------------------------------- jalai converter
 def jalali_converter(time):
     shamsi_months=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند']

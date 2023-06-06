@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %}  ورود {% endblock title %}
+{% block body %}
+    <div class="py-5 pb-3">
+        <section class="container bg-white rounded col-8 col-md-6 col-lg-4 p-5 shadow">
+            <h1 class="text-center display-6  mb-3 text-primary">ورود به حساب کاربری</h1>
+            <form action="" method='post'>
+                {% csrf_token %}
+                {{login_form.as_p}}
+                <div>
+                    <a  href=" {% url 'account:rememberpassword' %} " class="remember_password text-decoration-none text-warning">فراموشی رمز عبور</a>
+                </div>
+                <button type="submit" class="btn btn-primary form-control mt-4">ورود</button>
+
+                {% comment %} <div class="form-group">
+                    <div class="form-check"><span class="form-check-input input-check"><span class="input-check__body"><input class="input-check__input" type="checkbox" id="login-remember"> <span class="input-check__box"></span>
+                        <svg class="input-check__icon" width="9px" height="7px">
+                            <use xlink:href="images/sprite.svg#check-9x7"></use>
+                        </svg>
+                        </span>
+                        </span>
+                        <label class="form-check-label" for="login-remember">به خاطر سپاری</label>
+                    </div>
+                </div> {% endcomment %}
+            </form>
+        </section>
+    </div>
+{% endblock body %}

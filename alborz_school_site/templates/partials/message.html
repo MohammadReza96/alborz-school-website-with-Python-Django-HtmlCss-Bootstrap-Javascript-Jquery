@@ -1,0 +1,11 @@
+{% if messages %}
+    {% for message in messages %}
+        <h6 class="alert alert-{{message.tags}} my-5 mb-3">
+            <div class="">
+                <section class="container col-10 col-md-10 col-lg-10">
+                    {{message}}
+                </section>
+            </div>
+        </h6>
+    {% endfor %}
+{% endif %}

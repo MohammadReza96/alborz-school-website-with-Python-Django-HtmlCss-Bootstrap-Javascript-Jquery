@@ -1,0 +1,60 @@
+/* create a special opacity utility */
+.bg-opacity-95 {
+    --bs-bg-opacity: 0.90;
+}
+.bg-opacity-15 {
+    --bs-bg-opacity: 0.20;
+}
+
+/* override a Utilities color 1 */
+.btn-primary,.btn-primary:visited,
+.btn-primary:focus{
+background-color: #7a0dfd; 
+border-color: #8c2cff;
+}
+.btn-primary:hover,
+.btn-primary:active {
+background-color: #5e13b9;
+border-color: #6917ca;
+}
+.btn-primary:active:focus,
+.btn-primary:focus {
+box-shadow: 0 0 0 .25 rem rgba(199, 49, 253, 0.5);
+}
+.text-primary {
+    color: #6906df !important;
+}
+.bg-primary {
+    background-color: #f9f8ff !important;
+}
+.border-primary {
+    border-color: #6906df !important;
+}
+
+/* override a Utilities color 2 */
+.btn-outline-primary,
+.btn-outline-primary:focus{
+    border-color: #8c2cff;
+    color: #8c2cff;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+    background-color: #7a0dfd; 
+    border-color: #8c2cff;
+    color: white;
+}
+
+/* override a accordion component for rtl dir */
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+    position: absolute;
+    left:10px;
+}

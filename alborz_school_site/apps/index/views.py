@@ -11,4 +11,16 @@ def media_admin(request):
 #----------------------------------------- media loader in each page 
 class IndexView(View):
     def get(self,request,*args,**kwargs):
-        return render(request,'base.html')
+        return render(request,'index.html')
+#----------------------------------------- media loader in each page 
+class ContactUsView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'contactus_app/contact-us.html')
+#----------------------------------------- media loader in each page 
+class BlogsView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'blog_app/blogs.html')
+#----------------------------------------- media loader in each page 
+class AboutUsView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'aboutus_app/about-us.html')

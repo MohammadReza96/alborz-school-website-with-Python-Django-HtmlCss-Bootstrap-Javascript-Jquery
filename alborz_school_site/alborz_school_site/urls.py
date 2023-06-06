@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("apps.index.urls",namespace="index")),
+    path("account/", include("apps.account.urls",namespace="account")),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+# ----------------------------------------------- error handling
+handler404='apps.errorhandlers.views.handler404'
