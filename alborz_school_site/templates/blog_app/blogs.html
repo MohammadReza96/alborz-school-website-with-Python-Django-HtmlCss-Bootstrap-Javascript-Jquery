@@ -6,101 +6,83 @@
         <section class="container text-center">
             <h1 class="mb-4 text-end">آخرین مقالات</h1>
            <div class="row g-2 justify-content-around">
+            {% comment %} this is for showing blog {% endcomment %}
             <div class="col-lg-8">
                 <div class="row g-4">
-
-                    <div class="col-12 bg-white rounded shadow">
-                        <div class="row justify-content-between p-2 px-0">
-                            <div class="col-md-5">
-                                <img src="{{media_url}}/images/blogs/alborz-slider-3.jpeg" alt="" width="340" height="300" class="col-12">
-                            </div>
-                            <div class="col-md-7  text-end">
-                                <h2 class="mb-lg-4 my-3 text-primary">title</h2>
-                                <p class="mb-lg-5 text-justify">
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic dddd
-                                </p>
-                                <div class="text-muted">year/month/day  h:m:s</div>
-                                <div class="text-warning">view number</div>
-                                <div class="text-danger">like number</div>
-                                <div class="text-start">
-                                    <a href="#">continue ...</a>
+                    {% for blog in page_obj %}
+                        <div class="col-12 bg-white rounded shadow">
+                            <div class="row justify-content-between p-2 px-0">
+                                <div class="col-md-5 h-auto">
+                                    <img src="{{media_url}}{{blog.blog_main_image}}" alt="" width="340" height="320" class="col-12 rounded">
+                                </div>
+                                <div class="col-md-7 mx-auto px-4 text-end">
+                                    <h2 class="mb-lg-4 my-2 text-primary">{{blog.blog_title}}</h2>
+                                    <p class="mb-lg-5 text-justify">
+                                        {{blog.blog_short_text}}
+                                    </p>
+                                    <div class="text-muted">{{blog.blog_publish_date_jalai_type}}</div>
+                                    <div class="text-muted">تعداد بازدید : <span class="text-warning">{{blog.blog_view_number}}</span>
+                                        &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; تعداد لایک : <span class="text-warning">{{blog.blog_view_number}}</span>
+                                        &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; تعداد کامنت : <span class="text-warning">{{blog.blog_view_number}}</span>
+                                    </div>
+                                    <div class="text-start">
+                                        <a href="#" class="btn btn-primary ">ادامه ...</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-12 bg-white rounded shadow">
-                        <div class="row justify-content-between p-2 px-0">
-                            <div class="col-md-5">
-                                <img src="{{media_url}}/images/blogs/alborz-slider-3.jpeg" alt="" width="340" height="300" class="col-12">
-                            </div>
-                            <div class="col-md-7  text-end">
-                                <h2 class="mb-lg-4 my-3 text-primary">title</h2>
-                                <p class="mb-lg-5 text-justify">
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic dddd
-                                </p>
-                                <div class="text-muted">year/month/day  h:m:s</div>
-                                <div class="text-warning">view number</div>
-                                <div class="text-danger">like number</div>
-                                <div class="text-start">
-                                    <a href="#">continue ...</a>
-                                </div>
-                            </div>
+                    {% endfor %}
+                    {% comment %} this part is for pagenatore {% endcomment %}
+                    <div class="pagination">
+                        <div class="posts-view__pagination mx-auto">
+                            <nav aria-label="Page navigation example bg-danger">
+                                <ul class="pagination justify-content-center">
+                        
+                                <!--Previous-->
+                                {% if page_obj.has_previous %}
+                                    <li class="page-item "><a class="page-link" href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+                                        {% endif %}
+                                <!-- Previous-->
+                        
+                                <!--Hellip-->
+                                {% if page_obj.number|add:'-4' > 1 %}
+                                    <li class="page-item"><a class="page-link " href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+                                {% endif %}
+                        
+                            <!--Pager-->
+                            {% for i in page_obj.paginator.page_range %}
+                                {% if page_obj.number == i %}
+                                    <li class="page-item active text-dark" aria-current="page">
+                                        <span class="page-link text-light">
+                                            {{ i }}
+                                            {% comment %} <span class="sr-only">(current)</span> {% endcomment %}
+                                        </span>
+                                    </li>
+                                {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            <!--end Pager__>
+                        
+                            <!Hellip-->
+                            {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+                                <li class="page-item"><a class="page-link " href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+                            {% endif %}
+                            <!end Hellip -->
+                        
+                            <!--Next-->
+                            {% if page_obj.has_next %}
+                                <li class="page-item ">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">بعدی</a>
+                                </li>
+                            {% else %}
+                                {% comment %} <li class="page-item-disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="True">بعدی</a></li> {% endcomment %}
+                            {% endif %}
+                            <!--end Next-->
+                            </ul>
+                            </nav>
                         </div>
                     </div>
-
-                    <div class="col-12 bg-white rounded shadow">
-                        <div class="row justify-content-between p-2 px-0">
-                            <div class="col-md-5">
-                                <img src="{{media_url}}/images/blogs/alborz-slider-3.jpeg" alt="" width="340" height="300" class="col-12">
-                            </div>
-                            <div class="col-md-7  text-end">
-                                <h2 class="mb-lg-4 my-3 text-primary">title</h2>
-                                <p class="mb-lg-5 text-justify">
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic dddd
-                                </p>
-                                <div class="text-muted">year/month/day  h:m:s</div>
-                                <div class="text-warning">view number</div>
-                                <div class="text-danger">like number</div>
-                                <div class="text-start">
-                                    <a href="#">continue ...</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 bg-white rounded shadow">
-                        <div class="row justify-content-between p-2 px-0">
-                            <div class="col-md-5">
-                                <img src="{{media_url}}/images/blogs/alborz-slider-3.jpeg" alt="" width="340" height="300" class="col-12">
-                            </div>
-                            <div class="col-md-7  text-end">
-                                <h2 class="mb-lg-4 my-3 text-primary">title</h2>
-                                <p class="mb-lg-5 text-justify">
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic nobis consequatur!
-                                    pit facere? Officia hic dddd
-                                </p>
-                                <div class="text-muted">year/month/day  h:m:s</div>
-                                <div class="text-warning">view number</div>
-                                <div class="text-danger">like number</div>
-                                <div class="text-start">
-                                    <a href="#">continue ...</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
                 </div>
             </div>
 

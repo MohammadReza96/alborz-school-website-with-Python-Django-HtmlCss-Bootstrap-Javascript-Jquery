@@ -38,9 +38,11 @@ nav a{
     background-color: transparent; /* Add a dark-grey background on hover */
     color: #ffc107; /* Text color */
 }
+/* error message box  */
 .errorlist > li{
 	color: red;
 }
+/* remmeber password btn */
 .remember_password:hover{
     color: #8c2cff !important;
 }
@@ -48,4 +50,27 @@ nav a{
     background-color: #8c2cff !important; /* Text color */
     color: #ffffff !important; /* Text color */
 
+}
+
+.posts-view__pagination {
+    direction: ltr;
+	padding-top: 48px
+}
+.page-item:first-child .page-link {
+	/* border-radius: 2px; */
+	margin-right: 0
+}
+.page-item:last-child .page-link {
+	/* border-top-left-radius: 10px; */
+	margin-left: 0
+}
+.page-item.active .page-link {
+	background: #8c2cff;
+	color: #fff;
+	cursor: default;
+    border-color: #8c2cff;
+}
+.page-item.disabled .page-link {
+	background: transparent;
+	color: #b3b3b3
 }
