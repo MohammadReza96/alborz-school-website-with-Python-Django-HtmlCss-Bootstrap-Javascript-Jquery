@@ -21,3 +21,7 @@ class ContactUsView(View):
 class AboutUsView(View):
     def get(self,request,*args,**kwargs):
         return render(request,'aboutus_app/about-us.html')
+#----------------------------------------- media loader in each page 
+class TeacherListView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'teacherlist_app/teacher_list.html')
